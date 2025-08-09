@@ -1,10 +1,19 @@
-let http = reuqire('http');
+const express = require('express');
+const app = express();
+const { loggedIn } = require('./middleware/LogedIn');
+const port = 3000;
+const userRoutes = require('./routes/user');
 
-let server = http.createServer((req, res) => {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('Hello, World!\n');
-});
+// Middleware setup
+app.set('view engine', 'pug');
+app.set('views', './views');
+app.use(express.static('public'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-server.listen(3000, () => {
-    console.log('Server is running at http://localhost:3000/');
+// routes
+app.use('/user', userRoutes);
+
+app.listen(port, () => {
+    console.log(`Server is running at http://localhost:${port}/`);
 });
