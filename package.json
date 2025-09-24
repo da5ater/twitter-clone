@@ -1,19 +1,19 @@
 {
-    "name": "twitter",
-    "version": "1.0.0",
-    "description": "a twitter clone",
-    "main": "app.js",
-    "scripts": {
-        "start": "node app.js",
-        "dev": "nodemon app.js"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "type": "commonjs",
-    "dependencies": {
-        "express": "^5.1.0",
-        "nodemon": "^3.1.10",
-        "pug": "^3.0.3"
-    }
+  "name": "twitter",
+  "version": "1.0.0",
+  "description": "a twitter clone",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js --ext .js,.json,.hbs,.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.1.0",
+    "hbs": "^4.2.0",
+    "nodemon": "^3.1.10"
+  }
 }
