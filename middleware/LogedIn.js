@@ -1,7 +1,7 @@
 exports.loggedIn = (req, res, next) => {
-    if (req.session && req.session.user) {
-        return next();
-    } else {
-        return res.redirect('/auth/login');
-    }
+  if (req.session && req.session.user) {
+    return next();
+  } else {
+    return res.redirect('/auth/login');
+  }
 };
