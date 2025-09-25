@@ -1,9 +1,10 @@
 let express = require('express');
-const { loggedIn } = require('../middleware/LogedIn');
 let router = express.Router();
 
-router.get('/', loggedIn, (req, res) => {
-  res.render('pages/home');
-});
+const userRouter = require('./user');
+const authRouter = require('./auth');
+
+router.use('/user', userRouter);
+router.use('/auth', authRouter);
 
 module.exports = router;
