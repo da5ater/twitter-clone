@@ -1,0 +1,13 @@
+// Import Bootstrap with your custom variables
+@import '../abstracts/variables';
+
+// Override Bootstrap variables BEFORE importing Bootstrap
+// Remove the #{} interpolation - Bootstrap expects actual color values
+$primary: $color-accent;
+$body-bg: $color-background;
+$body-color: $color-text-primary;
+$border-color: $color-border;
+$card-bg: $color-surface;
+
+// Import Bootstrap from node_modules
+@import '../../../node_modules/bootstrap/scss/bootstrap';

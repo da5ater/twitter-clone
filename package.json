@@ -1,19 +1,38 @@
 {
   "name": "twitter",
   "version": "1.0.0",
-  "description": "a twitter clone",
+  "description": "an X clone",
   "main": "app.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js --ext .js,.json,.hbs,.css"
+    "dev": "env-cmd -f ./config/dev.env nodemon server.js --ext .js,.json,.hbs,.css --quiet",
+    "watch:sass": "sass public/scss/main.scss public/css/main.css --watch --quiet",
+    "compile:sass": "sass public/scss/main.scss public/css/main.comp.css",
+    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' public/css/main.comp.css -o public/css/main.prefix.css",
+    "compress:css": "sass public/css/main.prefix.css public/css/main.css --style compressed",
+    "build:css": "npm-run-all compile:sass prefix:css compress:css",
+    "dev:full": "npm-run-all --parallel watch:sass dev ",
+    "prod": "npm-run-all build:css start"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^7.0.1",
+    "bootstrap": "^5.3.8",
+    "bootstrap-icons": "^1.13.1",
     "express": "^5.1.0",
     "express-handlebars": "^8.0.3",
+    "mongodb": "^6.20.0",
+    "mongoose": "^8.18.2",
     "nodemon": "^3.1.10"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "env-cmd": "^11.0.0",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^11.0.1",
+    "sass": "^1.93.2"
   }
 }

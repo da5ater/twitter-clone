@@ -6,8 +6,9 @@ const routes = require('./routes/index');
 
 configureViewEngine(app);
 
-// static files and body parser
-app.use('/public', express.static(path.join(__dirname, 'public')));
+// This one line handles all static files: CSS, JS, images, and fonts.
+app.use(express.static('public'));
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
