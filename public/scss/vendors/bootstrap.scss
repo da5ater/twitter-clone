@@ -9,5 +9,20 @@ $body-color: $color-text-primary;
 $border-color: $color-border;
 $card-bg: $color-surface;
 
+// spacing
+
+$spacer: $space-md;
+$spacers: (
+  0: 0,
+  1: $space-xs,
+  2: $space-sm,
+  3: $space-md,
+  4: $space-lg,
+  5: $space-xl,
+  6: $space-xl * 2,
+  7: $space-xl * 3,
+  8: $space-xl * 6,
+);
+
 // Import Bootstrap from node_modules
 @import '../../../node_modules/bootstrap/scss/bootstrap';
