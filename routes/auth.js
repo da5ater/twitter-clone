@@ -3,7 +3,7 @@ const router = express.Router();
 
 // profile route
 router.get('/login', (req, res) => {
-  res.render('login', { title: 'Login', layout: 'login-layout' });
+  res.render('login', { title: 'Login', layout: null });
 });
 
 router.get('/register', (req, res) => {

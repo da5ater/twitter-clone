@@ -1,0 +1,183 @@
+// Base variables for colors, fonts, etc.
+$font-family-primary: Arial, Helvetica, sans-serif;
+$color-primary: #1d9bf0;
+$color-text-dark: #0f1419;
+$color-text-light: #ffffff;
+$color-text-muted: #536471;
+$color-border: #cfd9de;
+$color-background-light: #ffffff;
+
+// The main login page block
+.login {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: calc(100vh - 60px); // Adjust based on footer height
+
+  // Left side promo section
+  &__promo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &-logo {
+      width: 100%;
+      max-width: 450px;
+      height: auto;
+    }
+  }
+
+  // Right side form section
+  &__form {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    > h1 {
+      font-size: 4rem;
+      font-weight: 900;
+      margin: 0 0 1rem;
+      color: $color-text-light;
+    }
+
+    > h2 {
+      font-size: 2rem;
+      font-weight: bold;
+      margin: 20px 0;
+      color: $color-text-light;
+    }
+  }
+
+  &__title {
+    font-size: 4rem;
+    font-weight: 900;
+    margin: 0 0 1rem;
+    color: $color-text-dark;
+  }
+
+  &__subtitle {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 20px 0;
+    color: $color-text-dark;
+  }
+
+  // Reusable button element
+  &__button {
+    width: 300px;
+    border: 1px solid $color-border;
+    border-radius: 30px;
+    background-color: $color-background-light;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+      background-color: darken($color-background-light, 5%);
+    }
+
+    // -- Modifier for Google button
+    &--google {
+      // Specific styles if needed
+    }
+
+    // -- Modifier for Apple button
+    &--apple {
+      // Specific styles if needed
+    }
+
+    // -- Modifier for the main "Create Account" button
+    &--create {
+      background-color: $color-primary;
+      border-color: $color-primary;
+      &:hover {
+        background-color: darken($color-primary, 10%);
+      }
+    }
+
+    // -- Modifier for the secondary "Sign in" button
+    &--signin {
+      background-color: transparent;
+      border-color: $color-border;
+      &:hover {
+        background-color: rgba($color-primary, 0.1);
+      }
+    }
+
+    &-icon {
+      width: 22px;
+      margin-right: 8px;
+
+      &--apple {
+        width: 20px;
+      }
+    }
+
+    &-text {
+      font-size: 1rem;
+      font-weight: 500;
+      color: $color-text-dark;
+
+      &--light {
+        color: $color-text-light;
+        font-weight: bold;
+      }
+
+      &--primary {
+        color: $color-primary;
+        font-weight: bold;
+      }
+    }
+  }
+
+  // "or" separator element
+  &__separator {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+
+    &-line {
+      flex-grow: 1;
+      border: none;
+      border-top: 1px solid $color-border;
+    }
+
+    &-text {
+      margin: 0 1rem;
+      color: $color-text-dark;
+    }
+  }
+
+  // Legal text element
+  &__legal {
+    width: 300px;
+    font-size: 0.7rem;
+    color: $color-text-muted;
+    line-height: 1.4;
+
+    &-link {
+      color: $color-primary;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  // Sign in section
+  &__signin {
+    margin-top: 40px;
+
+    &-title {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: $color-text-dark;
+    }
+  }
+}

@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "env-cmd -f ./config/dev.env nodemon server.js --ext .js,.json,.hbs,.css --quiet",
+    "dev": "env-cmd -f ./config/dev.env nodemon server.js --ext .js,.json,.hbs, --quiet",
     "watch:sass": "sass public/scss/main.scss public/css/main.css --watch --quiet",
     "compile:sass": "sass public/scss/main.scss public/css/main.comp.css",
     "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' public/css/main.comp.css -o public/css/main.prefix.css",
