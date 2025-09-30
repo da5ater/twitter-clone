@@ -13,6 +13,10 @@ $color-background-light: #ffffff;
   grid-template-columns: 1fr 1fr;
   min-height: calc(100vh - 60px); // Adjust based on footer height
 
+  // @media (max-width: 768px) {
+  //   grid-template-columns: 1fr; // Stack columns on small screens
+  // }
+
   // Left side promo section
   &__promo {
     display: flex;
