@@ -1,0 +1,90 @@
+<body>
+
+  <div class='container'>
+    <main class='register'>
+
+      <div class='register__header'>
+        <img
+          class='register__logo w-25'
+          src='/images/x-logo.png'
+          alt='X Logo'
+        />
+        <a
+          href='/'
+          class='btn btn-close text-primary w-100'
+          aria-label='Close'
+          style=' filter: invert(1) grayscale(100%) brightness(200%);'
+        ></a>
+      </div>
+
+      <h1 class='register__title'>Create your account</h1>
+      <form class='register__form' action='/auth/register' method='POST'>
+
+        <div class='register__form-group form-group'>
+          <label for='name' class='register__label'>Name</label>
+          <input
+            type='text'
+            id='name'
+            name='name'
+            class='register__input form-control w-75'
+            placeholder='Your name'
+            required
+          />
+        </div>
+
+        <div class='register__form-group'>
+          <label for='email' class='register__label'>Email</label>
+          <input
+            type='email'
+            id='email'
+            name='email'
+            class='register__input'
+            placeholder='Your email'
+            required
+          />
+        </div>
+
+        <div class='register__form-group'>
+          <label for='password' class='register__label'>Password</label>
+          <input
+            type='password'
+            id='password'
+            name='password'
+            class='register__input'
+            placeholder='Create a password'
+            required
+          />
+        </div>
+
+        <div class='register__form-group form-group'>
+          <label for='birthdate' class='register__label'>Date of Birth</label>
+          <small class='register__birthdate-info'>This will not be shown
+            publicly. Confirm your own age, even if this account is for a
+            business, a pet, or something else.</small>
+          <select name='birth_month' id='birth_month'>
+            <option value=''>Month</option>
+            <option value='1'>January</option>
+            <option value='2'>February</option>
+            <option value='3'>March</option>
+            <option value='4'>April</option>
+            <option value='5'>May</option>
+            <option value='6'>June</option>
+            <option value='7'>July</option>
+            <option value='8'>August</option>
+            <option value='9'>September</option>
+            <option value='10'>October</option>
+            <option value='11'>November</option>
+            <option value='12'>December</option>
+          </select>
+
+        </div>
+
+        <button type='submit' class='register__submit'>Register</button>
+      </form>
+
+    </main>
+  </div>
+
+  {{!-- {{> footer}} --}}
+
+</body>
