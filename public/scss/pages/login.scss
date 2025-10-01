@@ -13,9 +13,9 @@ $color-background-light: #ffffff;
   grid-template-columns: 1fr 1fr;
   min-height: calc(100vh - 60px); // Adjust based on footer height
 
-  // @media (max-width: 768px) {
-  //   grid-template-columns: 1fr; // Stack columns on small screens
-  // }
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr; // Stack columns on small screens
+  }
 
   // Left side promo section
   &__promo {
@@ -36,6 +36,7 @@ $color-background-light: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 
     > h1 {
       font-size: 4rem;

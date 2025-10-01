@@ -32075,6 +32075,11 @@ textarea.form-control-lg {
   grid-template-columns: 1fr 1fr;
   min-height: calc(100vh - 60px);
 }
+@media (max-width: 768px) {
+  .login {
+    grid-template-columns: 1fr;
+  }
+}
 .login__promo {
   display: flex;
   justify-content: center;
@@ -32090,6 +32095,7 @@ textarea.form-control-lg {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 .login__form > h1, .login__form > .h1 {
   font-size: 4rem;
