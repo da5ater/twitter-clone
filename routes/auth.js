@@ -11,4 +11,6 @@ router.get('/register', (req, res) => {
   res.render('register', { title: 'Register', layout: 'main-layout' });
 });
 
+console.log('Auth routes loaded');
+
 module.exports = router;
