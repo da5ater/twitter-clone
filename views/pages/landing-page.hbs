@@ -70,4 +70,20 @@
 
   {{> footer}}
 
+
+  {{#if showSignupModal}}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          // Show the modal when the page loads
+        let modalElm = document.getElementById('signupModal');
+
+        if (modalElm) {
+          let modal = new bootstrap.Modal(modalElm);
+          modal.show();
+        }
+      });
+    </script>
+  {{/if}}
+
+
 </body>

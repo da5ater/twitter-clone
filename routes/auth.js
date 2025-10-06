@@ -15,6 +15,7 @@ router.get('/register', (req, res) => {
     title: 'Register',
     layout: 'main-layout',
     datepayload,
+    showSignupModal: true,
   });
 });
 
