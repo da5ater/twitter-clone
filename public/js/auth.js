@@ -10,7 +10,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- 2. CREATE A SINGLE MODAL INSTANCE ---
   // We create it just once and reuse it everywhere.
-  const signupModal = new bootstrap.Modal(signupModalElement);
+  const signupModal = new bootstrap.Modal(
+    signupModalElement,
+    (options = {
+      keyboard: false, // Prevent closing with Esc key
+      ariaHidden: true, // Accessibility
+      backdrop: 'static', // Prevent closing by clicking outside
+      focus: true, // Focus on the modal when shown
+    })
+  );
 
   // --- 3. HANDLE THE BUTTON CLICK (for the '/' route) ---
   // Check if the button exists before adding a listener
