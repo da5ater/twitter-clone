@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const configureViewEngine = require('./config/viewEngine');
 const path = require('path');
-const routes = require('./routes/index');
+const { router } = require('./routes/index');
 
 configureViewEngine(app);
 
@@ -12,6 +12,6 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(routes);
+app.use(router);
 
 module.exports = app;
