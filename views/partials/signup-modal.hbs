@@ -7,14 +7,12 @@
   data-bs-backdrop='static'
   data-bs-keyboard='false'
 >
-
   <div
-    class='modal-dialog modal-dialog-centered modal-md model--fullscreen-lg-down'
+    class='modal-dialog modal-dialog-centered modal-md modal--fullscreen-lg-down'
   >
     <div class='modal-content'>
       <div class='modal-header'>
-
-      {{!-- Close button --}}
+        {{! Close button }}
         <button
           type='button'
           class='btn-close btn-close-white'
@@ -23,65 +21,130 @@
           id='close-signup-modal'
         ></button>
       </div>
- 
 
-
-      <div class='modal-body p-5 '>
+      <div class='modal-body p-5'>
         <h1>Create your account</h1>
 
+        <form
+          action='#'
+          method=''
+          class='mt-4 needs-validation'
+          novalidate
+          id='signupForm'
+        >
+          {{! name }}
+          <div class='mb-3 form-floating'>
+            <input
+              type='text'
+              placeholder='Full Name'
+              id='fullName'
+              required
+              class='form-control form-control-lg w-100'
+            />
+            <label for='fullName' class='form-label'>Full Name</label>
+            <div class='invalid-feedback'>
+              Please enter your full name.
+            </div>
+          </div>
 
-        <form action="" method="POST" class="mt-4">
+          {{! email }}
+          <div class='mb-3 form-floating'>
+            <input
+              type='text'
+              placeholder='Email'
+              id='email'
+              required
+              class='form-control form-control-lg w-100'
+            />
+            <label for='email' class='form-label'>Email</label>
+            <div class='invalid-feedback'>
+              Please enter a valid email address.
+            </div>
+          </div>
 
-          <input type="text" placeholder="Full Name" id="fullName" required class="form-control form-control-lg w-100" />
+          {{! Date of Birth }}
+          <div class='my-4'>
+            <label for='dof' class='form-label'>Date of Birth</label>
+            <small class='form-text text-muted d-block'>
+              this will not be shown publicly. Confirm your own age, even if
+              this account is for a business, a pet, or something else.
+            </small>
 
-        {{!-- Date of Birth --}}
-        <div class='my-4 '>
-          <label for='dof' class='form-label'>Date of Birth</label>
-          <small class="form-text text-muted d-block">this will not be shown publicly. Confirm your own age, even if this account is for a business, a pet, or something else.</small>
-        <div class='row mt-2 '>
-          <div class='col-5'>
-            <select
-              class='form-select'
-              id='dofMonth'
-              aria-label='Default select example'
+            <div class='row mt-2'>
+              <div class='col-5'>
+                <div class='form-floating'>
+                  <select
+                    class='form-select'
+                    id='dofMonth'
+                    aria-label='Default select example'
+                    required
+                  >
+                    <option selected disabled value=''> </option>
+                    {{#each datepayload.months}}
+                      <option value='{{this.Value}}'>{{this.Name}}</option>
+                    {{/each}}
+                  </select>
+                  <label for='dofMonth' class='form-label'>Month</label>
+                  <div class='invalid-feedback'>
+                    Please select your birth month.
+                  </div>
+                </div>
+              </div>
+
+              <div class='col-3'>
+                <div class='form-floating'>
+                  <select
+                    class='form-select'
+                    id='dofDay'
+                    aria-label='Default select example'
+                    required
+                  >
+                    <option selected disabled value=''></option>
+                    {{#each datepayload.days}}
+                      <option value='{{this}}'>{{this}}</option>
+                    {{/each}}
+                  </select>
+                  <label for='dofDay' class='form-label'>Day</label>
+                  <div class='invalid-feedback'>
+                    Please select your birth day.
+                  </div>
+                </div>
+              </div>
+
+              <div class='col-4'>
+                <div class='form-floating'>
+                  <select
+                    class='form-select'
+                    id='dofYear'
+                    aria-label='Default select example'
+                    required
+                  >
+                    <option selected disabled value=''></option>
+                    {{#each datepayload.years}}
+                      <option value='{{this}}'>{{this}}</option>
+                    {{/each}}
+                  </select>
+                  <label for='dofYear' class='form-label'>Year</label>
+                  <div class='invalid-feedback'>
+                    Please select your birth year.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class='modal-footer'>
+            <button
+              type='button'
+              class='btn btn-light btn-lg w-100 rounded-pill text-dark fw-bold'
+              id='signup-next'
             >
-              <option selected disabled>Month</option>
-              {{#each datepayload.months}}
-                <option value='{{this.Value}}'>{{this.Name}}</option>
-              {{/each}}
-            </select>
-          </div>
-          <div class='col-3'>
-            <select
-              class='form-select'
-              id='dofDay'
-              aria-label='Default select example'
-            >
-              <option selected disabled>Day</option>
-              {{#each datepayload.days}}
-                <option value='{{this}}'>{{this}}</option>
-              {{/each}}
-            </select>
+              Next
+            </button>
           </div>
 
-          <div class='col-4'>
-            <select
-              class='form-select'
-              id='dofYear'
-              aria-label='Default select example'
-            >
-              <option selected disabled>Year</option>
-              {{#each datepayload.years}}
-                <option value='{{this}}'>{{this}}</option>
-              {{/each}}
-            </select>
-
-          </div>
-          </div>
-        </div>
-
-      </div>
-      
+        </form>
       </div>
     </div>
   </div>
+</div>
