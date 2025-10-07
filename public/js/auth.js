@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     signupForm.classList.add('was-validated');
 
     const step1Inputs = signupForm.querySelectorAll(
-      '[data-step="1"] input select'
+      '[data-step="1"] input, [data-step="1"] select'
     );
 
     let allValid = true;
@@ -77,6 +77,31 @@ document.addEventListener('DOMContentLoaded', () => {
     // If all inputs are valid, proceed to the next step
     if (allValid) {
       event.preventDefault(); // Prevent form submission for demo purposes
+
+      const formData = new FormData(signupForm);
+      const jsonData = Object.fromEntries(formData);
+
+      console.log('Form Data:', jsonData);
+
+      fetch('/auth/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(jsonData),
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log('Success:', data);
+          // Optionally, handle success (e.g., show a success message or redirect)
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          // Optionally, handle errors (e.g., show an error message)
+        });
+
+      // Move to the next step in the modal
+
       document.querySelector('[data-step="1"]').classList.add('d-none');
       document.querySelector('[data-step="2"]').classList.remove('d-none');
     }

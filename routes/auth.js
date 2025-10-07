@@ -19,4 +19,22 @@ router.get('/register', (req, res) => {
   });
 });
 
+router.post('/register', (req, res) => {
+  const {
+    name,
+    email,
+    'dob[month]': month,
+    'dob[day]': day,
+    'dob[year]': year,
+  } = req.body;
+
+  console.log('Received registration data:', {
+    name,
+    email,
+    month,
+    day,
+    year,
+  });
+});
+
 module.exports = router;

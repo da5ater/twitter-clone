@@ -42,6 +42,7 @@
                 id='fullName'
                 required
                 class='form-control form-control-lg w-100'
+                name='name'
               />
               <label for='fullName' class='form-label'>Full Name</label>
               <div class='invalid-feedback'>
@@ -57,6 +58,7 @@
                 id='email'
                 required
                 class='form-control form-control-lg w-100'
+                name='email'
               />
               <label for='email' class='form-label'>Email</label>
               <div class='invalid-feedback'>
@@ -80,6 +82,7 @@
                       id='dofMonth'
                       aria-label='Default select example'
                       required
+                      name='dob[month]'
                     >
                       <option selected disabled value=''> </option>
                       {{#each datepayload.months}}
@@ -100,6 +103,7 @@
                       id='dofDay'
                       aria-label='Default select example'
                       required
+                      name='dob[day]'
                     >
                       <option selected disabled value=''></option>
                       {{#each datepayload.days}}
@@ -120,6 +124,7 @@
                       id='dofYear'
                       aria-label='Default select example'
                       required
+                      name='dob[year]'
                     >
                       <option selected disabled value=''></option>
                       {{#each datepayload.years}}
@@ -146,7 +151,7 @@
             </div>
 
           </div>
-          {{! Step 2: Confirmation Code ------------------------------------------------------------------------------------------}}
+          {{! Step 2: Confirmation Code ------------------------------------------------------------------------------------}}
           <div class='form-step d-none' data-step='2'>
             <h1 class='modal-title mb-4'>we sent you a confirmation code via
               email</h1>
@@ -184,7 +189,7 @@
             </div>
           </div>
 
-          {{! Step 3: Password Setup --------------------------------------------------------------------------------------------}}
+          {{! Step 3: Password Setup --------------------------------------------------------------------------------------}}
         </form>
 
       </div>
