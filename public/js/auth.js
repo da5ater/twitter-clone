@@ -55,23 +55,30 @@ document.addEventListener('DOMContentLoaded', () => {
   const signupForm = document.getElementById('signupForm');
 
   nextButton.addEventListener('click', event => {
-    // Check if the form's inputs are valid
-    if (!signupForm.checkValidity()) {
-      // If not valid, stop the event and prevent moving to the next step
-      event.preventDefault();
-      event.stopPropagation();
-    }
-
-    // This adds the red/green validation styles to the form fields
     signupForm.classList.add('was-validated');
 
-    // If the form IS valid, you would add your logic here
-    // to hide Step 1 and show Step 2.
-    if (signupForm.checkValidity()) {
-      console.log('Step 1 is valid! Ready to show Step 2.');
-      // Example:
-      // document.querySelector('[data-step="1"]').classList.add('d-none');
-      // document.querySelector('[data-step="2"]').classList.remove('d-none');
+    const step1Inputs = signupForm.querySelectorAll(
+      '[data-step="1"] input select'
+    );
+
+    let allValid = true;
+    step1Inputs.forEach(input => {
+      if (!input.checkValidity()) {
+        allValid = false;
+      }
+    });
+
+    if (!allValid) {
+      event.preventDefault();
+      event.stopPropagation();
+      return;
+    }
+
+    // If all inputs are valid, proceed to the next step
+    if (allValid) {
+      event.preventDefault(); // Prevent form submission for demo purposes
+      document.querySelector('[data-step="1"]').classList.add('d-none');
+      document.querySelector('[data-step="2"]').classList.remove('d-none');
     }
   });
 });

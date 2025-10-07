@@ -23,7 +23,6 @@
       </div>
 
       <div class='modal-body p-5'>
-        <h1>Create your account</h1>
 
         <form
           action='#'
@@ -32,118 +31,162 @@
           novalidate
           id='signupForm'
         >
-          {{! name }}
-          <div class='mb-3 form-floating'>
-            <input
-              type='text'
-              placeholder='Full Name'
-              id='fullName'
-              required
-              class='form-control form-control-lg w-100'
-            />
-            <label for='fullName' class='form-label'>Full Name</label>
-            <div class='invalid-feedback'>
-              Please enter your full name.
+          <div class='form-step' data-step='1'>
+
+            <h1 class='modal-title mb-4'>Create your account</h1>
+            {{! name }}
+            <div class='mb-3 form-floating'>
+              <input
+                type='text'
+                placeholder='Full Name'
+                id='fullName'
+                required
+                class='form-control form-control-lg w-100'
+              />
+              <label for='fullName' class='form-label'>Full Name</label>
+              <div class='invalid-feedback'>
+                Please enter your full name.
+              </div>
             </div>
-          </div>
 
-          {{! email }}
-          <div class='mb-3 form-floating'>
-            <input
-              type='text'
-              placeholder='Email'
-              id='email'
-              required
-              class='form-control form-control-lg w-100'
-            />
-            <label for='email' class='form-label'>Email</label>
-            <div class='invalid-feedback'>
-              Please enter a valid email address.
+            {{! email }}
+            <div class='mb-3 form-floating'>
+              <input
+                type='text'
+                placeholder='Email'
+                id='email'
+                required
+                class='form-control form-control-lg w-100'
+              />
+              <label for='email' class='form-label'>Email</label>
+              <div class='invalid-feedback'>
+                Please enter a valid email address.
+              </div>
             </div>
-          </div>
 
-          {{! Date of Birth }}
-          <div class='my-4'>
-            <label for='dof' class='form-label'>Date of Birth</label>
-            <small class='form-text text-muted d-block'>
-              this will not be shown publicly. Confirm your own age, even if
-              this account is for a business, a pet, or something else.
-            </small>
+            {{! Date of Birth }}
+            <div class='my-4'>
+              <label for='dof' class='form-label'>Date of Birth</label>
+              <small class='form-text text-muted d-block'>
+                this will not be shown publicly. Confirm your own age, even if
+                this account is for a business, a pet, or something else.
+              </small>
 
-            <div class='row mt-2'>
-              <div class='col-5'>
-                <div class='form-floating'>
-                  <select
-                    class='form-select'
-                    id='dofMonth'
-                    aria-label='Default select example'
-                    required
-                  >
-                    <option selected disabled value=''> </option>
-                    {{#each datepayload.months}}
-                      <option value='{{this.Value}}'>{{this.Name}}</option>
-                    {{/each}}
-                  </select>
-                  <label for='dofMonth' class='form-label'>Month</label>
-                  <div class='invalid-feedback'>
-                    Please select your birth month.
+              <div class='row mt-2'>
+                <div class='col-5'>
+                  <div class='form-floating'>
+                    <select
+                      class='form-select'
+                      id='dofMonth'
+                      aria-label='Default select example'
+                      required
+                    >
+                      <option selected disabled value=''> </option>
+                      {{#each datepayload.months}}
+                        <option value='{{this.Value}}'>{{this.Name}}</option>
+                      {{/each}}
+                    </select>
+                    <label for='dofMonth' class='form-label'>Month</label>
+                    <div class='invalid-feedback'>
+                      Please select your birth month.
+                    </div>
+                  </div>
+                </div>
+
+                <div class='col-3'>
+                  <div class='form-floating'>
+                    <select
+                      class='form-select'
+                      id='dofDay'
+                      aria-label='Default select example'
+                      required
+                    >
+                      <option selected disabled value=''></option>
+                      {{#each datepayload.days}}
+                        <option value='{{this}}'>{{this}}</option>
+                      {{/each}}
+                    </select>
+                    <label for='dofDay' class='form-label'>Day</label>
+                    <div class='invalid-feedback'>
+                      Please select your birth day.
+                    </div>
+                  </div>
+                </div>
+
+                <div class='col-4'>
+                  <div class='form-floating'>
+                    <select
+                      class='form-select'
+                      id='dofYear'
+                      aria-label='Default select example'
+                      required
+                    >
+                      <option selected disabled value=''></option>
+                      {{#each datepayload.years}}
+                        <option value='{{this}}'>{{this}}</option>
+                      {{/each}}
+                    </select>
+                    <label for='dofYear' class='form-label'>Year</label>
+                    <div class='invalid-feedback'>
+                      Please select your birth year.
+                    </div>
                   </div>
                 </div>
               </div>
+            </div>
 
-              <div class='col-3'>
-                <div class='form-floating'>
-                  <select
-                    class='form-select'
-                    id='dofDay'
-                    aria-label='Default select example'
-                    required
-                  >
-                    <option selected disabled value=''></option>
-                    {{#each datepayload.days}}
-                      <option value='{{this}}'>{{this}}</option>
-                    {{/each}}
-                  </select>
-                  <label for='dofDay' class='form-label'>Day</label>
-                  <div class='invalid-feedback'>
-                    Please select your birth day.
-                  </div>
-                </div>
-              </div>
+            <div class='modal-footer'>
+              <button
+                type='button'
+                class='btn btn-light btn-lg w-100 rounded-pill text-dark fw-bold'
+                id='signup-next'
+              >
+                Next
+              </button>
+            </div>
 
-              <div class='col-4'>
-                <div class='form-floating'>
-                  <select
-                    class='form-select'
-                    id='dofYear'
-                    aria-label='Default select example'
-                    required
-                  >
-                    <option selected disabled value=''></option>
-                    {{#each datepayload.years}}
-                      <option value='{{this}}'>{{this}}</option>
-                    {{/each}}
-                  </select>
-                  <label for='dofYear' class='form-label'>Year</label>
-                  <div class='invalid-feedback'>
-                    Please select your birth year.
-                  </div>
-                </div>
+          </div>
+          {{! Step 2: Confirmation Code ------------------------------------------------------------------------------------------}}
+          <div class='form-step d-none' data-step='2'>
+            <h1 class='modal-title mb-4'>we sent you a confirmation code via
+              email</h1>
+            <p class='mb-4'>Enter it below to confirm your email address and
+              continue setting up your account.</p>
+
+            <div class='mb-3 form-floating'>
+              <input
+                type='text'
+                placeholder='Confirmation Code'
+                id='confirmationCode'
+                required
+                class='form-control form-control-lg w-100'
+              />
+              <label for='confirmationCode' class='form-label'>Confirmation Code</label>
+              <div class='invalid-feedback'>
+                Please enter the confirmation code sent to your email.
               </div>
+            </div>
+
+            <a
+              href='#'
+              class='d-block text-decoration-none'
+              id='resendConfirmationCode'
+            >Resend confirmation code</a>
+
+            <div class='modal-footer'>
+              <button
+                type='button'
+                class='btn btn-light btn-lg w-100 rounded-pill text-dark fw-bold'
+                id='signup-next'
+              >
+                Next
+              </button>
             </div>
           </div>
 
-          <div class='modal-footer'>
-            <button
-              type='button'
-              class='btn btn-light btn-lg w-100 rounded-pill text-dark fw-bold'
-              id='signup-next'
-            >
-              Next
-            </button>
-          </div>
-
+          {{! Step 3: Password Setup --------------------------------------------------------------------------------------------}}
         </form>
+
       </div>
     </div>
   </div>
